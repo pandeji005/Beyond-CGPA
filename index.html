@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond CGPA — Ultimate Placement Resource Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&family=Space+Grotesk:wght=500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                        },
+                        dark: {
+                            950: '#09090b',
+                            900: '#121214',
+                            800: '#1a1a1e',
+                            700: '#252529',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #09090b;
+            color: #f4f4f5;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121214;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #252529;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f3f46;
+        }
+        /* Glassmorphism Classes */
+        .glass {
+            background: rgba(18, 18, 20, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(139, 92, 246, 0.4);
+            transform: translateY(-2px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Active Sidebar Indicator */
+        .sidebar-active {
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0) 100%);
+            border-left: 3px solid #8b5cf6;
+            color: #f4f4f5;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-500/30 selection:text-brand-100">
+
+    <!-- ==================== LANDING PAGE VIEW ==================== -->
+    <div id="landing-page" class="min-h-screen flex flex-col justify-between relative overflow-hidden">
+        <!-- Glow Backdrops -->
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-600/10 blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none"></div>
+
+        <!-- Navbar -->
+        <header class="w-full max-w-7xl mx-auto px-6 py-6 flex justify-between items-center z-10">
+            <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-brand-500/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <span class="font-display font-bold text-2xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-zinc-100 to-zinc-400">Beyond CGPA</span>
+            </div>
+            <div>
+                <button onclick="enterDashboard()" class="relative group overflow-hidden px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300">
+                    <span class="absolute inset-0 bg-zinc-800 rounded-xl group-hover:bg-brand-600 transition-colors duration-300"></span>
+                    <span class="relative text-zinc-300 group-hover:text-white flex items-center gap-2">
+                        Enter Dashboard
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Hero Section -->
+        <main class="max-w-7xl mx-auto px-6 py-12 md:py-20 text-center z-10 flex-1 flex flex-col justify-center items-center">
+            <span class="px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-500/10 border border-brand-500/20 text-brand-400 tracking-wider uppercase mb-6 inline-flex items-center gap-1.5 animate-pulse-slow">
+                <span class="h-2 w-2 rounded-full bg-brand-500"></span>
+                Webinar Exclusive Resource Pack
+            </span>
+            
+            <h1 class="font-display font-bold text-5xl md:text-7xl tracking-tight leading-[1.1] max-w-4xl text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-400">
+                Everything you need for placements, <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-indigo-400 to-purple-500">beyond just your GPA</span>.
+            </h1>
+            
+            <p class="mt-6 text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed">
+                The absolute collection of Placement Roadmaps, Curated Cheat Sheets, Deep-Dive Interview Kits, and an extensive AI Resource Center, combined into a clean, premium operating system.
+            </p>
+
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button onclick="enterDashboard()" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white rounded-xl font-semibold shadow-lg shadow-brand-500/25 flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105">
+                    Launch Placement OS
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </button>
+                <a href="#why-this-exists" class="w-full sm:w-auto px-8 py-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-300">
+                    Explore Sections
+                </a>
+            </div>
+
+            <!-- Dashboard Preview Widget -->
+            <div class="mt-16 w-full max-w-5xl rounded-2xl border border-zinc-800 bg-zinc-900/50 p-2 shadow-2xl relative group">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-600/5 to-transparent rounded-2xl pointer-events-none"></div>
+                <div class="rounded-xl overflow-hidden bg-dark-950 aspect-[16/9] border border-zinc-800 flex flex-col">
+                    <!-- Fake Mac Window Controls -->
+                    <div class="px-4 py-3 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                        </div>
+                        <span class="text-xs text-zinc-500 font-mono">beyondcgpa.dev/dashboard</span>
+                        <div class="w-8"></div>
+                    </div>
+                    <!-- Mock Preview Workspace -->
+                    <div class="flex-1 grid grid-cols-12 text-left">
+                        <div class="col-span-3 border-r border-zinc-800 p-4 space-y-3 bg-zinc-900/40">
+                            <div class="h-4 w-2/3 bg-zinc-800 rounded mb-4"></div>
+                            <div class="h-8 w-full bg-brand-500/10 border-l-2 border-brand-500 rounded-r flex items-center px-2">
+                                <div class="h-3 w-1/2 bg-brand-400 rounded"></div>
+                            </div>
+                            <div class="h-8 w-full bg-transparent rounded flex items-center px-2" v-for="i in 3">
+                                <div class="h-3 w-2/3 bg-zinc-800 rounded"></div>
+                            </div>
+                        </div>
+                        <div class="col-span-9 p-6 space-y-6">
+                            <div class="space-y-2">
+                                <div class="h-6 w-1/3 bg-zinc-700 rounded"></div>
+                                <div class="h-4 w-2/3 bg-zinc-800 rounded"></div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-4 border border-zinc-800 rounded-xl bg-zinc-900/60 space-y-3">
+                                    <div class="h-4 w-24 bg-brand-400 rounded"></div>
+                                    <div class="h-10 w-full bg-zinc-800 rounded"></div>
+                                </div>
+                                <div class="p-4 border border-zinc-800 rounded-xl bg-zinc-900/60 space-y-3">
+                                    <div class="h-4 w-32 bg-indigo-400 rounded"></div>
+                                    <div class="h-10 w-full bg-zinc-800 rounded"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Stats Section -->
+        <section id="why-this-exists" class="max-w-7xl mx-auto px-6 py-16 border-t border-zinc-900 w-full">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center p-6 border border-zinc-900 rounded-xl bg-zinc-900/20">
+                    <span class="block text-4xl font-bold text-brand-500 font-display">120+</span>
+                    <span class="text-sm text-zinc-400 mt-2 block">Curated Free Resources</span>
+                </div>
+                <div class="text-center p-6 border border-zinc-900 rounded-xl bg-zinc-900/20">
+                    <span class="block text-4xl font-bold text-indigo-400 font-display">50+</span>
+                    <span class="text-sm text-zinc-400 mt-2 block">Premium AI Tool Profiles</span>
+                </div>
+                <div class="text-center p-6 border border-zinc-900 rounded-xl bg-zinc-900/20">
+                    <span class="block text-4xl font-bold text-purple-400 font-display">6</span>
+                    <span class="text-sm text-zinc-400 mt-2 block">Structured Career Roadmaps</span>
+                </div>
+                <div class="text-center p-6 border border-zinc-900 rounded-xl bg-zinc-900/20">
+                    <span class="block text-4xl font-bold text-pink-400 font-display">100%</span>
+                    <span class="text-sm text-zinc-400 mt-2 block">Free and Unlocked</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who is it for Section -->
+        <section class="max-w-7xl mx-auto px-6 py-16 w-full">
+            <h2 class="text-3xl font-bold font-display text-center mb-12">Who Should Use Beyond CGPA?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 border border-zinc-800 bg-zinc-900/30 rounded-2xl relative overflow-hidden group hover:border-zinc-700 transition-all duration-300">
+                    <div class="p-3 bg-brand-500/10 border border-brand-500/20 rounded-xl w-fit text-brand-400 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Self-Taught Engineers</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Students without standard guidance who need high-quality roadmaps, practice sheets, and actual learning materials organized in one unified database.</p>
+                </div>
+                <div class="p-8 border border-zinc-800 bg-zinc-900/30 rounded-2xl relative overflow-hidden group hover:border-zinc-700 transition-all duration-300">
+                    <div class="p-3 bg-indigo-500/10 border border-indigo-500/20 rounded-xl w-fit text-indigo-400 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI-First Developers</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Engineers wanting to leap ahead using cutting-edge AI coding, UI design, resume builders, and advanced research agents.</p>
+                </div>
+                <div class="p-8 border border-zinc-800 bg-zinc-900/30 rounded-2xl relative overflow-hidden group hover:border-zinc-700 transition-all duration-300">
+                    <div class="p-3 bg-purple-500/10 border border-purple-500/20 rounded-xl w-fit text-purple-400 mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Placement Candidates</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">Students targeting FAANG / high-paying startup roles requiring robust system design, optimized LinkedIn profiles, and clean ATS resumes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Curator Showcase Block on Landing -->
+        <section class="max-w-7xl mx-auto px-6 py-12 w-full border-t border-zinc-900/80">
+            <div class="p-8 rounded-2xl bg-gradient-to-r from-zinc-900 via-zinc-950 to-brand-950 border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="flex items-center gap-4">
+                    <div class="h-16 w-16 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-500 flex items-center justify-center text-white font-bold text-xl font-display shadow-lg">
+                        AD
+                    </div>
+                    <div>
+                        <span class="text-xs text-brand-400 font-bold uppercase tracking-widest block">Resource Hub Curator</span>
+                        <h4 class="text-2xl font-bold font-display text-zinc-100">Amogh Deshpande</h4>
+                        <p class="text-xs text-zinc-400 mt-1 max-w-lg">Technical mentor and architect passionate about equipping student developers with direct, actionable career tools and industrial skills.</p>
+                    </div>
+                </div>
+                <a href="https://www.linkedin.com/in/amoghdesh/" target="_blank" class="px-6 py-3 bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold rounded-xl transition duration-300 shadow-lg flex items-center gap-2">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="w-full max-w-7xl mx-auto px-6 py-8 border-t border-zinc-900 text-center text-zinc-500 text-xs flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 Beyond CGPA. Curated for ambitious engineers.</p>
+            <p>Crafted with pride by <span class="text-zinc-300 font-semibold">Amogh Deshpande</span></p>
+        </footer>
+    </div>
+
+
+    <!-- ==================== MAIN DASHBOARD VIEW ==================== -->
+    <div id="dashboard-page" class="hidden min-h-screen flex flex-col md:flex-row">
+        
+        <!-- Mobile Header Navigation Toggle -->
+        <div class="md:hidden w-full bg-zinc-950 border-b border-zinc-800 p-4 flex justify-between items-center sticky top-0 z-50">
+            <div class="flex items-center gap-2">
+                <div class="h-8 w-8 rounded-lg bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <span class="font-display font-bold text-lg text-zinc-100">Beyond CGPA</span>
+            </div>
+            <button onclick="toggleMobileSidebar()" class="p-2 text-zinc-400 hover:text-white hover:bg-zinc-900 rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Desktop Sidebar Navigation -->
+        <aside id="sidebar" class="hidden md:flex w-72 bg-zinc-950 border-r border-zinc-900 p-6 flex-col justify-between fixed md:sticky top-0 h-screen z-40 transition-transform duration-300">
+            <div class="space-y-8 flex-1 flex flex-col">
+                <!-- Branding -->
+                <div class="flex items-center gap-3">
+                    <div class="h-9 w-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <span class="font-display font-bold text-xl text-zinc-100">Beyond CGPA</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="space-y-1.5 flex-1 overflow-y-auto">
+                    <button onclick="switchTab('roadmaps')" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-all font-medium sidebar-btn sidebar-active" data-tab="roadmaps">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        Roadmaps
+                        <span class="ml-auto bg-brand-500/10 text-brand-400 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide">AI</span>
+                    </button>
+                    
+                    <button onclick="switchTab('dsa')" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-all font-medium sidebar-btn" data-tab="dsa">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        DSA Mastery
+                    </button>
+
+                    <button onclick="switchTab('core')" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-all font-medium sidebar-btn" data-tab="core">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        Core CS Subjects
+                    </button>
+
+                    <button onclick="switchTab('interview')" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-all font-medium sidebar-btn" data-tab="interview">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                        Interview Prep
+                    </button>
+
+                    <button onclick="switchTab('resume')" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-all font-medium sidebar-btn" data-tab="resume">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Resume & LinkedIn
+                    </button>
+
+                    <button onclick="switchTab('ai-toolkit')" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-all font-medium sidebar-btn" data-tab="ai-toolkit">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        AI Toolkit & Prompts
+                        <span class="ml-auto bg-green-500/10 text-green-400 px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wide">Mega</span>
+                    </button>
+
+                    <button onclick="switchTab('bonus')" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-all font-medium sidebar-btn" data-tab="bonus">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4l-1 9H9l-1-9h4z"></path></svg>
+                        Bonus Resources
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Beautiful Mini-Curator Card docked in Sidebar -->
+            <div class="p-3 bg-zinc-900 rounded-xl border border-zinc-800 space-y-2 mb-4">
+                <div class="flex items-center gap-2">
+                    <div class="h-6 w-6 rounded-full bg-brand-500 flex items-center justify-center font-bold text-[9px]">AD</div>
+                    <span class="text-xs font-semibold text-zinc-200">Amogh Deshpande</span>
+                </div>
+                <a href="https://www.linkedin.com/in/amoghdesh/" target="_blank" class="w-full text-center block text-[10px] font-bold text-brand-400 hover:text-brand-300 py-1 border border-brand-500/20 rounded bg-brand-500/5 hover:bg-brand-500/10">LinkedIn Profile ↗</a>
+            </div>
+
+            <!-- Author signature -->
+            <div class="pt-6 border-t border-zinc-900 text-[10px] text-zinc-500 flex flex-col gap-1">
+                <span>By Amogh Deshpande</span>
+                <span class="opacity-60">Version 2.0 (2026 Edition)</span>
+            </div>
+        </aside>
+
+        <!-- Main Workspace (Content Area) -->
+        <main class="flex-1 min-h-screen bg-dark-950 flex flex-col">
+            
+            <!-- Global Top Bar (Dynamic Header) -->
+            <div class="px-6 py-4 bg-zinc-950/60 border-b border-zinc-900 flex flex-col sm:flex-row justify-between items-center gap-4 sticky top-14 md:top-0 z-30 backdrop-blur-md">
+                <div class="w-full sm:w-96 relative">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </span>
+                    <input type="text" id="global-search" oninput="runSearch()" placeholder="Search tools, roadmaps, DSA topics..." class="w-full bg-zinc-900/80 border border-zinc-800 rounded-xl py-2 pl-10 pr-4 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-brand-500 transition-all">
+                </div>
+                
+                <div class="flex items-center gap-4 justify-between w-full sm:w-auto">
+                    <!-- Progress meter -->
+                    <div class="flex items-center gap-3">
+                        <span class="text-xs text-zinc-500">Placement Prep Checklist Tracker:</span>
+                        <div class="w-32 bg-zinc-800 rounded-full h-2">
+                            <div id="progress-bar-fill" class="bg-gradient-to-r from-brand-500 to-indigo-500 h-2 rounded-full" style="width: 35%"></div>
+                        </div>
+                        <span id="progress-percentage" class="text-xs font-semibold text-brand-400">35%</span>
+                    </div>
+
+                    <!-- Return to Landing -->
+                    <button onclick="exitDashboard()" class="text-xs text-zinc-500 hover:text-white flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                        Exit
+                    </button>
+                </div>
+            </div>
+
+            <!-- Page Content Wrappers -->
+            <div id="content-area" class="flex-1 p-6 md:p-8 space-y-8 max-w-7xl mx-auto w-full">
+                
+                <!-- ==================== ROADMAPS TAB ==================== -->
+                <div id="tab-roadmaps" class="tab-content space-y-8">
+                    <!-- Section Header -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-3xl font-display font-bold text-zinc-100">Learning & Tech Roadmaps</h1>
+                            <p class="text-sm text-zinc-400 mt-1">Structured developmental paths for high-impact software careers in 2026.</p>
+                        </div>
+                        <span class="px-3 py-1 bg-brand-500/10 text-brand-400 text-xs font-semibold rounded-full border border-brand-500/20">Updated for 2026</span>
+                    </div>
+
+                    <!-- Featured AI Roadmap Generator Hero Card -->
+                    <div class="relative overflow-hidden rounded-2xl border border-brand-500/30 bg-gradient-to-tr from-brand-950 via-zinc-950 to-indigo-950 p-8 shadow-2xl">
+                        <div class="absolute top-0 right-0 p-4">
+                            <span class="px-2.5 py-1 bg-brand-500 text-white text-[10px] font-bold uppercase tracking-wider rounded-md">Featured Resource</span>
+                        </div>
+                        <div class="max-w-2xl space-y-4">
+                            <h2 class="text-2xl md:text-3xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 via-zinc-200 to-brand-300">
+                                Smart Personalised AI Roadmap Generator
+                            </h2>
+                            <p class="text-zinc-400 text-sm leading-relaxed">
+                                Build real-time custom technical pathways tuned specifically to your desired target roles, timeline depth, and prior experience levels. Create custom maps for full-stack, data engineering, backend development, high-frequency trading platforms, and cybersecurity.
+                            </p>
+                            <div class="pt-2">
+                                <a href="https://opal.google/app/1IvQrd4VOo9lkhjgzr9rpmuCZcu7hKv5p" target="_blank" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 rounded-xl transition duration-300 transform hover:scale-[1.02] shadow-lg shadow-brand-600/35">
+                                    Open Google Opal
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Standard Learning Pathways Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Roadmap.sh standard developer tool -->
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 glass-hover flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-lg font-bold font-display text-zinc-200">Roadmap.sh Platform</h3>
+                                    <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded">HIGHLY RECOMMENDED</span>
+                                </div>
+                                <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+                                    The pre-eminent structural developer path catalog globally. Includes step-by-step visualizations across Front-end, Back-end, DevOps, Database configurations, Systems Engineering, API setups, Java, Python, React, and Android environments.
+                                </p>
+                            </div>
+                            <a href="https://roadmap.sh" target="_blank" class="w-full text-center bg-zinc-800 hover:bg-zinc-700 text-zinc-300 py-2.5 rounded-lg text-xs font-semibold transition-colors duration-200">
+                                Explore Structured Roadmaps
+                            </a>
+                        </div>
+
+                        <!-- System Design roadmap -->
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 glass-hover flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-lg font-bold font-display text-zinc-200">System Design Beginner Map</h3>
+                                    <span class="px-2 py-0.5 bg-zinc-800 text-zinc-400 text-[10px] font-bold rounded">BEGINNER FRIENDLY</span>
+                                </div>
+                                <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+                                    A beginner-focused conceptual architecture roadmap designed to take you from no system design experience to building scalable servers, distributed databases, cache architectures, and understanding load balancers.
+                                </p>
+                            </div>
+                            <a href="https://github.com/donnemartin/system-design-primer" target="_blank" class="w-full text-center bg-zinc-800 hover:bg-zinc-700 text-zinc-300 py-2.5 rounded-lg text-xs font-semibold transition-colors duration-200">
+                                Explore System Design Primer
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Domain Selector Buttons -->
+                    <div>
+                        <h2 class="text-xl font-bold font-display mb-4">Core Track Specifications</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+                            <button onclick="filterRoadmaps('webdev')" class="roadmap-filter-btn px-4 py-2 rounded-lg text-xs font-semibold border border-brand-500/20 bg-brand-500/10 text-brand-300">Software Dev</button>
+                            <button onclick="filterRoadmaps('dataai')" class="roadmap-filter-btn px-4 py-2 rounded-lg text-xs font-semibold border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900 transition-colors">Data & AI</button>
+                            <button onclick="filterRoadmaps('infra')" class="roadmap-filter-btn px-4 py-2 rounded-lg text-xs font-semibold border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900 transition-colors">Infrastructure</button>
+                            <button onclick="filterRoadmaps('security')" class="roadmap-filter-btn px-4 py-2 rounded-lg text-xs font-semibold border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900 transition-colors">Security</button>
+                            <button onclick="filterRoadmaps('corecs')" class="roadmap-filter-btn px-4 py-2 rounded-lg text-xs font-semibold border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900 transition-colors">Core CS</button>
+                            <button onclick="filterRoadmaps('all')" class="roadmap-filter-btn px-4 py-2 rounded-lg text-xs font-semibold border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900 transition-colors">All Tracks</button>
+                        </div>
+                    </div>
+
+                    <!-- Domain Detail Cards -->
+                    <div id="roadmap-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Dynamic render via javascript -->
+                    </div>
+                </div>
+
+                <!-- ==================== DSA MASTERY TAB ==================== -->
+                <div id="tab-dsa" class="tab-content hidden space-y-8">
+                    <!-- Section Header -->
+                    <div>
+                        <h1 class="text-3xl font-display font-bold text-zinc-100">Data Structures & Algorithms</h1>
+                        <p class="text-sm text-zinc-400 mt-1">From language fundamentals to core placement sheets and high-tier algorithmic systems.</p>
+                    </div>
+
+                    <!-- Language Selection Sub-Module -->
+                    <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-6">
+                        <h2 class="text-lg font-bold font-display text-zinc-200">Step 1: Choose Your Core Weapon</h2>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            <button onclick="selectDSALang('cpp')" class="dsa-lang-btn border-2 border-brand-500 bg-brand-500/10 p-4 rounded-xl text-left transition-all relative">
+                                <span class="text-sm font-bold block">C++</span>
+                                <span class="text-xs text-zinc-400 mt-1 block">Apna College Shraddha Khapra playlist</span>
+                                <span class="absolute top-3 right-3 text-brand-400 font-bold text-xs font-mono">Apna Col</span>
+                            </button>
+                            <button onclick="selectDSALang('java')" class="dsa-lang-btn border border-zinc-800 hover:border-zinc-700 bg-zinc-900/20 p-4 rounded-xl text-left transition-all relative">
+                                <span class="text-sm font-bold block">Java</span>
+                                <span class="text-xs text-zinc-400 mt-1 block">Kunal Kushwaha Complete Bootcamp</span>
+                                <span class="absolute top-3 right-3 text-zinc-500 font-bold text-xs font-mono">Kunal K</span>
+                            </button>
+                            <button onclick="selectDSALang('python')" class="dsa-lang-btn border border-zinc-800 hover:border-zinc-700 bg-zinc-900/20 p-4 rounded-xl text-left transition-all relative">
+                                <span class="text-sm font-bold block">Python</span>
+                                <span class="text-xs text-zinc-400 mt-1 block">NeetCode Python & Practice Workspace</span>
+                                <span class="absolute top-3 right-3 text-zinc-500 font-bold text-xs font-mono">NeetCode</span>
+                            </button>
+                            <button onclick="selectDSALang('javascript')" class="dsa-lang-btn border border-zinc-800 hover:border-zinc-700 bg-zinc-900/20 p-4 rounded-xl text-left transition-all relative">
+                                <span class="text-sm font-bold block">JavaScript</span>
+                                <span class="text-xs text-zinc-400 mt-1 block">Sheryians Coding School Crash Courses</span>
+                                <span class="absolute top-3 right-3 text-zinc-500 font-bold text-xs font-mono">Sheryians</span>
+                            </button>
+                        </div>
+
+                        <!-- Language Resources Panel -->
+                        <div id="dsa-lang-resources-box" class="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-3">
+                            <!-- Rendered on selection -->
+                        </div>
+                    </div>
+
+                    <!-- DSA Practice Sheets Section -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Striver's A2Z DSA Sheet -->
+                        <div class="p-6 rounded-2xl border border-brand-500/30 bg-brand-950/20 space-y-4 relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <span class="absolute top-3 right-3 px-2 py-0.5 bg-brand-500 text-white text-[9px] font-bold uppercase tracking-wider rounded">Highly Recommended</span>
+                                <span class="px-2 py-0.5 bg-brand-500/10 text-brand-400 text-[10px] font-bold rounded">ULTIMATE PATH</span>
+                                <h3 class="text-lg font-bold font-display text-zinc-100 mt-2">Striver's A2Z DSA Sheet</h3>
+                                <p class="text-xs text-zinc-400 leading-relaxed">The gold standard prep curriculum. 450+ systematically ordered problems with dynamic tracking to prepare you comprehensively for FAANG-level placement interviews.</p>
+                            </div>
+                            <a href="https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/" target="_blank" class="block w-full text-center bg-brand-600 hover:bg-brand-500 text-white text-xs py-2 rounded-lg font-semibold transition-colors shadow-lg shadow-brand-600/30">Access Ultimate Sheet</a>
+                        </div>
+                        
+                        <!-- LeetCode Top Interview 150 -->
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4 flex flex-col justify-between">
+                            <div>
+                                <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded">TOP CHOICE</span>
+                                <h3 class="text-lg font-bold font-display">LeetCode Top Interview 150</h3>
+                                <p class="text-xs text-zinc-400 leading-relaxed">Official, highly curated list of 150 original and classic LeetCode problems covering comprehensive interview patterns. The current placement benchmark.</p>
+                            </div>
+                            <a href="https://leetcode.com/studyplan/top-interview-150/" target="_blank" class="block w-full text-center bg-zinc-800 hover:bg-zinc-700 text-xs py-2 rounded-lg font-semibold transition-colors">Access Official Study Plan</a>
+                        </div>
+                        
+                        <!-- Official Blind 75 Sheet -->
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4 flex flex-col justify-between">
+                            <div>
+                                <span class="px-2 py-0.5 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold rounded">PRACTICAL</span>
+                                <h3 class="text-lg font-bold font-display">Official Blind 75 Sheet</h3>
+                                <p class="text-xs text-zinc-400 leading-relaxed">The classical, highly focused compilation of 75 essential problems designed to maximize concept coverage in limited preparation times.</p>
+                            </div>
+                            <a href="https://leetcode.com/problem-list/xi4ci4ig/" target="_blank" class="block w-full text-center bg-zinc-800 hover:bg-zinc-700 text-xs py-2 rounded-lg font-semibold transition-colors">Access Direct LeetCode List</a>
+                        </div>
+
+                        <!-- NeetCode 150 Sheet -->
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4 flex flex-col justify-between">
+                            <div>
+                                <span class="px-2 py-0.5 bg-purple-500/10 text-purple-400 text-[10px] font-bold rounded">DEEP TRACE</span>
+                                <h3 class="text-lg font-bold font-display">NeetCode 150 Sheet</h3>
+                                <p class="text-xs text-zinc-400 leading-relaxed">Curated LeetCode problems categorized strictly by topic. Builds strong structural intuition with precise problem explanations.</p>
+                            </div>
+                            <a href="https://neetcode.io/practice" target="_blank" class="block w-full text-center bg-zinc-800 hover:bg-zinc-700 text-xs py-2 rounded-lg font-semibold transition-colors">Access Sheet</a>
+                        </div>
+                    </div>
+
+                    <!-- Practice Platforms Grid -->
+                    <div>
+                        <h2 class="text-xl font-bold font-display mb-4">Official Competitive & Practice Platforms</h2>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <a href="https://leetcode.com" target="_blank" class="p-4 border border-zinc-800 bg-zinc-900/20 hover:border-brand-500 text-center rounded-xl transition-all">
+                                <span class="font-bold text-sm block">LeetCode</span>
+                                <span class="text-[10px] text-zinc-500">Problem solving standard</span>
+                            </a>
+                            <a href="https://www.geeksforgeeks.org" target="_blank" class="p-4 border border-zinc-800 bg-zinc-900/20 hover:border-brand-500 text-center rounded-xl transition-all">
+                                <span class="font-bold text-sm block">GeeksforGeeks</span>
+                                <span class="text-[10px] text-zinc-500">Interview revision</span>
+                            </a>
+                            <a href="https://www.codechef.com" target="_blank" class="p-4 border border-zinc-800 bg-zinc-900/20 hover:border-brand-500 text-center rounded-xl transition-all">
+                                <span class="font-bold text-sm block">CodeChef</span>
+                                <span class="text-[10px] text-zinc-500">Contest practice</span>
+                            </a>
+                            <a href="https://codeforces.com" target="_blank" class="p-4 border border-zinc-800 bg-zinc-900/20 hover:border-brand-500 text-center rounded-xl transition-all">
+                                <span class="font-bold text-sm block">Codeforces</span>
+                                <span class="text-[10px] text-zinc-500">High performance CP</span>
+                            </a>
+                            <a href="https://www.hackerrank.com" target="_blank" class="p-4 border border-zinc-800 bg-zinc-900/20 hover:border-brand-500 text-center rounded-xl transition-all">
+                                <span class="font-bold text-sm block">HackerRank</span>
+                                <span class="text-[10px] text-zinc-500">Online test assessments</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Topic Wise Concept Library -->
+                    <div>
+                        <h2 class="text-xl font-bold font-display mb-4">Interactive Topic Wise Learning</h2>
+                        <div id="dsa-topics-accordions" class="space-y-3">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== CORE SUBJECTS TAB ==================== -->
+                <div id="tab-core" class="tab-content hidden space-y-8">
+                    <!-- Section Header -->
+                    <div>
+                        <h1 class="text-3xl font-display font-bold text-zinc-100">Core Computer Science Subjects</h1>
+                        <p class="text-sm text-zinc-400 mt-1">Review critical fundamentals: DBMS, SQL Databases, Operating Systems, Computer Networks, and OOPs.</p>
+                    </div>
+
+                    <!-- SQL 50 Mastery Sub-Module -->
+                    <div class="p-6 rounded-2xl border border-indigo-500/30 bg-gradient-to-r from-zinc-950 via-indigo-950/20 to-zinc-950 space-y-4 shadow-xl">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div>
+                                <span class="px-2.5 py-1 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold uppercase tracking-wider rounded-md border border-indigo-500/20">Featured Skill Set</span>
+                                <h2 class="text-2xl font-bold font-display text-zinc-100 mt-2">SQL Mastery & LeetCode SQL 50</h2>
+                                <p class="text-xs text-zinc-400 mt-1 max-w-2xl">Structured database queries form 40%+ of software engineer data-round questions. This curated workspace contains all direct guides to the classic LeetCode SQL 50 syllabus.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="https://leetcode.com/studyplan/top-sql-50/" target="_blank" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-lg transition shadow-lg">LeetCode SQL 50 Plan ↗</a>
+                                <a href="https://www.youtube.com/watch?v=D_wNQR3LeeM" target="_blank" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold rounded-lg transition border border-zinc-700">Complete SQL 1-Shot Video</a>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-zinc-900">
+                            <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+                                <span class="text-xs font-bold text-indigo-400 font-mono block mb-1">SQL 50 Solutions Sheet</span>
+                                <p class="text-[11px] text-zinc-400 mb-3">Complete study plan queries fully documented and mapped out for MySQL/PostgreSQL environments.</p>
+                                <a href="https://github.com/ieshreya/sql-50-leetcode" target="_blank" class="text-xs text-indigo-300 hover:underline">Get Solutions Repo ↗</a>
+                            </div>
+                            <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+                                <span class="text-xs font-bold text-indigo-400 font-mono block mb-1">Basic SQL Cheat Sheet</span>
+                                <p class="text-[11px] text-zinc-400 mb-3">Handy syntactical definitions of Joins, Group By, Having, Window functions, and aggregation steps.</p>
+                                <a href="https://leetcode.com/studyplan/top-sql-50/" target="_blank" class="text-xs text-indigo-300 hover:underline">Launch Study Plan ↗</a>
+                            </div>
+                            <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800">
+                                <span class="text-xs font-bold text-indigo-400 font-mono block mb-1">Interactive Video Walkthroughs</span>
+                                <p class="text-[11px] text-zinc-400 mb-3">Comprehensive playlist with clean logic structures solving all 50 essential questions step by step.</p>
+                                <a href="https://www.youtube.com/playlist?list=PL2DNwXX2LoZs3caX9HAW42Eor0Xh1vSCB" target="_blank" class="text-xs text-indigo-300 hover:underline">Open Playlist ↗</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grid of core subjects revision guides -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- DBMS (Love Babbar CodeHelp Update) -->
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                            <div class="flex justify-between items-center">
+                                <h2 class="text-xl font-bold font-display text-zinc-200">Database Management Systems (DBMS)</h2>
+                                <span class="text-xs bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded">High Weightage</span>
+                            </div>
+                            <div class="space-y-2 text-xs text-zinc-400">
+                                <p><strong class="text-zinc-200">Essential Concepts:</strong> Joins, Indexing, Transaction Management (ACID), Normalization (1NF, 2NF, 3NF, BCNF), ER Diagram.</p>
+                                <p><strong class="text-zinc-200">Recommended playlist:</strong> CodeHelp by Love Babbar DBMS for Placements.</p>
+                            </div>
+                            <div class="pt-4 border-t border-zinc-800 flex gap-2">
+                                <a href="https://www.youtube.com/playlist?list=PLDzeHZWIZsTpukecmA2p5rhHM14bl2dHU" target="_blank" class="flex-1 text-center bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded text-xs transition font-semibold">Love Babbar Course</a>
+                                <a href="https://www.geeksforgeeks.org/dbms/" target="_blank" class="flex-1 text-center bg-zinc-800 hover:bg-zinc-700 text-zinc-300 py-2 rounded text-xs transition">GeeksforGeeks Notes</a>
+                            </div>
+                        </div>
+
+                        <!-- OS (Love Babbar CodeHelp Update) -->
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                            <div class="flex justify-between items-center">
+                                <h2 class="text-xl font-bold font-display text-zinc-200">Operating Systems (OS)</h2>
+                                <span class="text-xs bg-brand-500/10 text-brand-400 px-2 py-0.5 rounded">Must Master</span>
+                            </div>
+                            <div class="space-y-2 text-xs text-zinc-400">
+                                <p><strong class="text-zinc-200">Essential Concepts:</strong> Processes vs Threads, CPU Scheduling (SJF, Round Robin), Deadlock Avoidance, Memory Allocation, Virtual Memory & Paging.</p>
+                                <p><strong class="text-zinc-200">Recommended playlist:</strong> CodeHelp by Love Babbar Operating Systems for Placements.</p>
+                            </div>
+                            <div class="pt-4 border-t border-zinc-800 flex gap-2">
+                                <a href="https://www.youtube.com/playlist?list=PLDzeHZWIZsTr3nwuTegHLa2qlI81QweYG" target="_blank" class="flex-1 text-center bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded text-xs transition font-semibold">Love Babbar Course</a>
+                                <a href="https://www.geeksforgeeks.org/operating-systems/" target="_blank" class="flex-1 text-center bg-zinc-800 hover:bg-zinc-700 text-zinc-300 py-2 rounded text-xs transition font-semibold">GFG OS Notes</a>
+                            </div>
+                        </div>
+
+                        <!-- Computer Networks (Kunal CN Video Update) -->
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                            <div class="flex justify-between items-center">
+                                <h2 class="text-xl font-bold font-display text-zinc-200">Computer Networks (CN)</h2>
+                                <span class="text-xs bg-purple-500/10 text-purple-400 px-2 py-0.5 rounded">Key Interview Focus</span>
+                            </div>
+                            <div class="space-y-2 text-xs text-zinc-400">
+                                <p><strong class="text-zinc-200">Essential Concepts:</strong> OSI Layer Architecture, TCP vs UDP protocols, Three-way handshake, DNS operation, HTTP/HTTPS configurations.</p>
+                                <p><strong class="text-zinc-200">Recommended course:</strong> Kunal Kushwaha Computer Networking Complete Video Course.</p>
+                            </div>
+                            <div class="pt-4 border-t border-zinc-800 flex gap-2">
+                                <a href="https://www.youtube.com/watch?v=IPvYjXCsTg8" target="_blank" class="flex-1 text-center bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded text-xs transition font-semibold">Kunal K. Course</a>
+                                <a href="https://www.geeksforgeeks.org/computer-network-tutorials/" target="_blank" class="flex-1 text-center bg-zinc-800 hover:bg-zinc-700 text-zinc-300 py-2 rounded text-xs transition">CN Revision Notes</a>
+                            </div>
+                        </div>
+
+                        <!-- OOPs (Kunal Java OOP Update) -->
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                            <div class="flex justify-between items-center">
+                                <h2 class="text-xl font-bold font-display text-zinc-200">Object-Oriented Programming (OOPs)</h2>
+                                <span class="text-xs bg-green-500/10 text-green-400 px-2 py-0.5 rounded">Conceptual Pillars</span>
+                            </div>
+                            <div class="space-y-2 text-xs text-zinc-400">
+                                <p><strong class="text-zinc-200">Essential Concepts:</strong> Inheritance, Dynamic Polymorphism, Abstraction vs Encapsulation, Abstract classes, Virtual Functions, Friend Functions.</p>
+                                <p><strong class="text-zinc-200">Recommended course:</strong> Kunal Kushwaha Object-Oriented Java Series.</p>
+                            </div>
+                            <div class="pt-4 border-t border-zinc-800 flex gap-2">
+                                <a href="https://www.youtube.com/playlist?list=PL9gnSGHSqcno1G3XjUbwzXHL8_EttOuKk" target="_blank" class="flex-1 text-center bg-indigo-600 hover:bg-indigo-500 text-white py-2 rounded text-xs transition font-semibold">Kunal K. Course</a>
+                                <a href="https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/" target="_blank" class="flex-1 text-center bg-zinc-800 hover:bg-zinc-700 text-zinc-300 py-2 rounded text-xs transition">OOPs Core Notes</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ==================== INTERVIEW PREPARATION TAB ==================== -->
+                <div id="tab-interview" class="tab-content hidden space-y-8">
+                    <!-- Section Header -->
+                    <div>
+                        <h1 class="text-3xl font-display font-bold text-zinc-100">Interview Preparation Guide</h1>
+                        <p class="text-sm text-zinc-400 mt-1">Strategies and actionable scripts for passing standard technical, HR, and project discussion rounds.</p>
+                    </div>
+
+                    <!-- Mock Interview Simulator and STAR Builder -->
+                    <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-xl font-bold font-display text-zinc-200">Interactive STAR Method Constructor</h2>
+                            <span class="px-2.5 py-1 rounded bg-brand-500/10 text-brand-400 text-xs font-semibold">Project Prep Utility</span>
+                        </div>
+                        <p class="text-sm text-zinc-400">Use this to structure your technical projects for behavioral or resume review rounds before discussing with recruiters.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Situation (S)</label>
+                                    <textarea id="star-s" rows="2" placeholder="e.g. During my summer internship, our transaction server had massive spikes in memory usage." class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-sm focus:outline-none focus:border-brand-500"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Task (T)</label>
+                                    <textarea id="star-t" rows="2" placeholder="e.g. I was tasked with identifying the memory leak and reducing server latency by 20%." class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-sm focus:outline-none focus:border-brand-500"></textarea>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Action (A)</label>
+                                    <textarea id="star-a" rows="2" placeholder="e.g. I set up Chrome DevTools memory profiling, traced the issue to unclosed connection streams, and resolved it." class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-sm focus:outline-none focus:border-brand-500"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Result (R)</label>
+                                    <textarea id="star-r" rows="2" placeholder="e.g. Memory overhead dropped by 45%, and the query execution latency was cut by 15ms." class="w-full bg-zinc-950 border border-zinc-800 rounded-lg p-3 text-sm focus:outline-none focus:border-brand-500"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-zinc-800 flex justify-between items-center">
+                            <button onclick="compileSTAR()" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold text-xs px-5 py-2.5 rounded-lg transition">Format Pitch Summary</button>
+                            <span id="star-copied" class="text-xs text-green-400 font-semibold hidden">Pitch Copied to Clipboard!</span>
+                        </div>
+                        <div id="star-output-box" class="p-4 rounded bg-zinc-950 border border-zinc-800 text-sm font-mono text-zinc-400 hidden">
+                            <!-- Star Pitch Summary Output -->
+                        </div>
+                    </div>
+
+                    <!-- Peer mock interview options -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                            <h3 class="text-lg font-bold font-display">PRamp Mock Prep Platform</h3>
+                            <p class="text-xs text-zinc-400">Match with fellow engineers in simulated technical environments for system designs, core coding loops, and product analysis.</p>
+                            <a href="https://pramp.com" target="_blank" class="inline-block bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded text-xs font-semibold">Book a Mock Interview</a>
+                        </div>
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                            <h3 class="text-lg font-bold font-display">Interviews.school Reference Guide</h3>
+                            <p class="text-xs text-zinc-400">A structured, deeply tactical reference syllabus written by tech leads specifically for FAANG software engineer targets.</p>
+                            <a href="https://interviews.school" target="_blank" class="inline-block bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded text-xs font-semibold">Access Guide</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== RESUME & LINKEDIN TAB ==================== -->
+                <div id="tab-resume" class="tab-content hidden space-y-8">
+                    <!-- Section Header -->
+                    <div>
+                        <h1 class="text-3xl font-display font-bold text-zinc-100">Resume & LinkedIn Optimization</h1>
+                        <p class="text-sm text-zinc-400 mt-1">Maximize response rates with industry-standard resume standards and automated outreach templates.</p>
+                    </div>
+
+                    <!-- ATS Standard Template Box -->
+                    <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                        <div class="flex justify-between items-center">
+                            <h2 class="text-lg font-bold font-display">The Standard Jake's Resume LaTeX Template</h2>
+                            <span class="px-2.5 py-1 bg-green-500/10 text-green-400 text-xs rounded-full">Highly Recommended</span>
+                        </div>
+                        <p class="text-sm text-zinc-400">The most widely used and proven ATS-friendly single-page resume layout globally. Keeps bullet formatting parseable by modern corporate screening software.</p>
+                        <a href="https://github.com/jakegut/resume" target="_blank" class="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white px-5 py-2.5 rounded-lg text-xs font-semibold">
+                            Get LaTeX Code Source
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Interactive Resume Analyzer / Checklist -->
+                    <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                        <h2 class="text-lg font-bold font-display">Pre-Apply Verification Checklist</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <label class="flex items-start gap-3 p-3 bg-zinc-950 rounded-lg border border-zinc-800 cursor-pointer">
+                                    <input type="checkbox" onchange="updateTracker()" class="mt-1 accent-brand-500 checkbox-item">
+                                    <span class="text-xs text-zinc-300">No spelling mistakes, standard fonts (Inter, Arial, Times)</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-3 bg-zinc-950 rounded-lg border border-zinc-800 cursor-pointer">
+                                    <input type="checkbox" onchange="updateTracker()" class="mt-1 accent-brand-500 checkbox-item">
+                                    <span class="text-xs text-zinc-300">Single-page limit strictly maintained</span>
+                                </label>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="flex items-start gap-3 p-3 bg-zinc-950 rounded-lg border border-zinc-800 cursor-pointer">
+                                    <input type="checkbox" onchange="updateTracker()" class="mt-1 accent-brand-500 checkbox-item">
+                                    <span class="text-xs text-zinc-300">Quantifiable impact inside achievements (e.g. Reduced latency by 12%)</span>
+                                </label>
+                                <label class="flex items-start gap-3 p-3 bg-zinc-950 rounded-lg border border-zinc-800 cursor-pointer">
+                                    <input type="checkbox" onchange="updateTracker()" class="mt-1 accent-brand-500 checkbox-item">
+                                    <span class="text-xs text-zinc-300">Links for all GitHub and live web projects are verified</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Recruiter Copy-Paste Script -->
+                    <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                        <h2 class="text-lg font-bold font-display">Recruiter LinkedIn outreach cold script</h2>
+                        <p class="text-xs text-zinc-400">Copy this clean high-conversion prompt to request referrals or introduce yourself directly on social platforms.</p>
+                        <div class="relative bg-zinc-950 border border-zinc-800 rounded-lg p-4 font-mono text-xs text-zinc-300 leading-relaxed">
+                            <button onclick="copyOutreachScript()" class="absolute top-3 right-3 bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded text-[10px] font-bold text-zinc-300">Copy</button>
+                            <pre id="outreach-script">Subject: [Job Title] Role Query — [Your University] Candidate
+
+Hi [Recruiter Name],
+
+I recently discovered the [Job Title] posting at [Company Name] and wanted to introduce myself. I am currently a final-year CS undergrad with solid experience building production [mention stack, e.g. React/Django] pipelines, and scaled data queries.
+
+My resume is attached for your quick review. If you have 5 minutes, I would love to connect about how my skills fit into your active initiatives.
+
+Best,
+[Your Name]
+[LinkedIn/Portfolio URL]</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== AI TOOLKIT TAB ==================== -->
+                <div id="tab-ai-toolkit" class="tab-content hidden space-y-8">
+                    <!-- Section Header -->
+                    <div>
+                        <h1 class="text-3xl font-display font-bold text-indigo-400">The 2026 AI Developer Toolkit</h1>
+                        <p class="text-sm text-zinc-400 mt-1">Leverage advanced tools and custom prompts to accelerate coding loops and career prep.</p>
+                    </div>
+
+                    <!-- Live AI Category Filtering -->
+                    <div class="flex gap-2 overflow-x-auto pb-2 border-b border-zinc-900">
+                        <button onclick="filterAITools('all')" class="ai-filter-btn px-4 py-2 bg-indigo-500 text-white rounded-lg text-xs font-semibold whitespace-nowrap">All AI Tools</button>
+                        <button onclick="filterAITools('coding')" class="ai-filter-btn px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 rounded-lg text-xs font-semibold whitespace-nowrap">Coding AI & IDEs</button>
+                        <button onclick="filterAITools('agents')" class="ai-filter-btn px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 rounded-lg text-xs font-semibold whitespace-nowrap">AI Agents</button>
+                        <button onclick="filterAITools('research')" class="ai-filter-btn px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 rounded-lg text-xs font-semibold whitespace-nowrap">Research & Productivity</button>
+                        <button onclick="filterAITools('career')" class="ai-filter-btn px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 rounded-lg text-xs font-semibold whitespace-nowrap">Resume & Career</button>
+                        <button onclick="filterAITools('design')" class="ai-filter-btn px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 rounded-lg text-xs font-semibold whitespace-nowrap">Design & Content</button>
+                    </div>
+
+                    <!-- AI Tools Catalog Grid -->
+                    <div id="ai-tools-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <!-- Prompt Engineering Playground / Copy-paste library -->
+                    <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-6">
+                        <h2 class="text-xl font-bold font-display text-zinc-200">Pre-Constructed Placement LLM Prompts</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3">
+                                <span class="text-xs font-bold text-brand-400 uppercase tracking-wider block">DSA optimization prompt</span>
+                                <p class="text-xs text-zinc-400 leading-relaxed">"Provide the time complexity of the following code and suggest a highly optimized approach using efficient data structures..."</p>
+                                <button onclick="copyPromptText('dsa')" class="bg-zinc-800 hover:bg-zinc-700 text-xs px-3 py-1.5 rounded text-zinc-300 font-semibold">Copy Prompt</button>
+                            </div>
+                            <div class="p-4 bg-zinc-950 rounded-xl border border-zinc-800 space-y-3">
+                                <span class="text-xs font-bold text-brand-400 uppercase tracking-wider block">Resume bullet formatting prompt</span>
+                                <p class="text-xs text-zinc-400 leading-relaxed">"Rewrite the following software engineering achievements using action verbs and quantified impact metrics..."</p>
+                                <button onclick="copyPromptText('resume')" class="bg-zinc-800 hover:bg-zinc-700 text-xs px-3 py-1.5 rounded text-zinc-300 font-semibold">Copy Prompt</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== BONUS RESOURCES TAB ==================== -->
+                <div id="tab-bonus" class="tab-content hidden space-y-8">
+                    <!-- Section Header -->
+                    <div>
+                        <h1 class="text-3xl font-display font-bold text-zinc-100">Bonus Career Resources</h1>
+                        <p class="text-sm text-zinc-400 mt-1">Excellent extra repositories, community portals, and reading sheets to explore.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                            <h2 class="text-xl font-bold font-display">Top Free Newsletters</h2>
+                            <ul class="space-y-3 text-xs text-zinc-400">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                                    <a href="https://blog.bytebytego.com/" target="_blank" class="text-zinc-200 hover:underline font-semibold">ByteByteGo by Alex Xu</a> — System design simplified
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                                    <a href="https://pragmaticengineer.com/" target="_blank" class="text-zinc-200 hover:underline font-semibold">The Pragmatic Engineer</a> — Market insights & tech trends
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 space-y-4">
+                            <h2 class="text-xl font-bold font-display">Open-source Repositories</h2>
+                            <ul class="space-y-3 text-xs text-zinc-400">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                    <a href="https://github.com/kamranahmedse/developer-roadmap" target="_blank" class="text-zinc-200 hover:underline font-semibold">kamranahmedse/developer-roadmap</a>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                    <a href="https://github.com/donnemartin/system-design-primer" target="_blank" class="text-zinc-200 hover:underline font-semibold">donnemartin/system-design-primer</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Creator Showcase Block inside Bonus Dashboard Section -->
+                    <div class="p-8 rounded-2xl bg-gradient-to-tr from-zinc-900 via-dark-900 to-indigo-950/20 border border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="flex items-center gap-4">
+                            <div class="h-14 w-14 rounded-full bg-brand-600 flex items-center justify-center font-bold text-lg font-display text-white">AD</div>
+                            <div>
+                                <span class="text-xs text-brand-400 font-mono block">Curated By</span>
+                                <h4 class="text-xl font-bold text-zinc-100 font-display">Amogh Deshpande</h4>
+                                <p class="text-xs text-zinc-400 mt-1">SDE, Placement Mentor, and Technical Content Creator.</p>
+                            </div>
+                        </div>
+                        <a href="https://www.linkedin.com/in/amoghdesh/" target="_blank" class="px-5 py-2.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold rounded-lg border border-zinc-700 flex items-center gap-2 transition duration-200">
+                            Connect on LinkedIn ↗
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dashboard Inner Footer -->
+            <footer class="w-full bg-zinc-950/60 border-t border-zinc-900 py-6 px-8 text-center text-xs text-zinc-500">
+                Created for engineering webinar attendees. Curated with pride in 2026.
+            </footer>
+        </main>
+    </div>
+
+    <!-- Toast UI Notifications (Standard Custom Component) -->
+    <div id="toast-wrapper" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- ==================== JAVASCRIPT LOGIC WORKSPACE ==================== -->
+    <script>
+        // Real Mock Data Repositories for search/rendering
+        const roadmapData = [
+            {
+                id: 'webdev-fe',
+                category: 'webdev',
+                title: 'Frontend Development Track',
+                overview: 'Core UI engineering pipeline',
+                timeline: '3-4 Months',
+                skills: ['HTML/CSS', 'Modern Vanilla JS', 'Tailwind CSS', 'React Core Framework', 'State Slices'],
+                projects: ['Interactive Real-Time Canvas', 'Premium Dashboard UI Client']
+            },
+            {
+                id: 'webdev-be',
+                category: 'webdev',
+                title: 'Backend Engineering Track',
+                overview: 'Databases, API routing, server architecture',
+                timeline: '4-5 Months',
+                skills: ['Node.js/Express or Python Django', 'PostgreSQL Basics', 'REST API Architectures', 'Redis Caching'],
+                projects: ['High-Throughput E-commerce Transaction Engine']
+            },
+            {
+                id: 'dataai-ml',
+                category: 'dataai',
+                title: 'Machine Learning Engineer',
+                overview: 'Model architectures, deployments, deep math frameworks',
+                timeline: '6-8 Months',
+                skills: ['Core Python', 'NumPy & Pandas', 'Scikit-Learn', 'PyTorch / TensorFlow', 'FastAPI Deployments'],
+                projects: ['Continuous Deployment Pipeline for Vision Models']
+            },
+            {
+                id: 'infra-cloud',
+                category: 'infra',
+                title: 'Cloud Engineering & DevOps',
+                overview: 'Automating high-availability cloud deployments',
+                timeline: '5-6 Months',
+                skills: ['Linux command suite', 'Docker Isolation', 'Kubernetes Orchestration', 'AWS/GCP, Terraform'],
+                projects: ['Highly Available Kubernetes Multi-Tier Web Cluster']
+            },
+            {
+                id: 'security-analyst',
+                category: 'security',
+                title: 'Cybersecurity Analyst',
+                overview: 'Secure software deployments, auditing, vulnerability scans',
+                timeline: '6 Months',
+                skills: ['Networking, Wireshark', 'OWASP Top 10 Audits', 'SIEM Logs Monitoring', 'Incident Plans'],
+                projects: ['Automated Vulnerability Scanner with Python and Shodan API']
+            },
+            {
+                id: 'corecs-system',
+                category: 'corecs',
+                title: 'Core Systems & Compiler Track',
+                overview: 'Low-level systems coding, custom modules',
+                timeline: '8 Months',
+                skills: ['Standard C/C++', 'Assembly, Memory Mapping', 'Compiling Parsers', 'Concurrency Frameworks'],
+                projects: ['Lexical Parser & Basic Stack Emulator']
+            }
+        ];
+
+        // Core Corrected Video/Resource Channels
+        const dsaLangData = {
+            cpp: {
+                playlist: 'https://www.youtube.com/playlist?list=PLfqMhTWNBTe137I_EPQd34TsgV6IO55pt',
+                notes: 'https://www.geeksforgeeks.org/c-plus-plus/',
+                cheatSheet: 'https://github.com/gibsjose/cpp-cheat-sheet',
+                practice: 'https://leetcode.com/tag/cpp/'
+            },
+            java: {
+                playlist: 'https://www.youtube.com/playlist?list=PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ',
+                notes: 'https://www.geeksforgeeks.org/java/',
+                cheatSheet: 'https://cheatography.com/laurence/cheat-sheets/java/',
+                practice: 'https://leetcode.com/tag/java/'
+            },
+            python: {
+                playlist: 'https://www.youtube.com/@NeetCode',
+                notes: 'https://www.geeksforgeeks.org/python-programming-language/',
+                cheatSheet: 'https://github.com/fprime/python-cheat-sheet',
+                practice: 'https://leetcode.com/tag/python/'
+            },
+            javascript: {
+                playlist: 'https://www.youtube.com/watch?v=a-wVHL0lpb0',
+                notes: 'https://www.geeksforgeeks.org/javascript/',
+                cheatSheet: 'https://github.com/mbeaudru/modern-js-cheatsheet',
+                practice: 'https://leetcode.com/tag/javascript/'
+            }
+        };
+
+        const dsaTopicData = [
+            {
+                topic: 'Arrays & Vectors',
+                concept: 'Contiguous memory layout, access in O(1) time.',
+                playlist: 'https://youtube.com/playlist?list=PLgUwDviBHe0rPG3Ictpu74YWBQ1CaBkg2',
+                practice: ['Two Sum', 'Max Subarray Sum (Kadane)', 'Sort Colors (Dutch National Flag)']
+            },
+            {
+                topic: 'Strings & Parsing',
+                concept: 'Immutable systems (in Java/Python), mutable (in C++). Rabin-Karp & KMP algorithms.',
+                playlist: 'https://youtube.com/playlist?list=PLgUwDviBHe0rPG3Ictpu74YWBQ1CaBkg2',
+                practice: ['Longest Substring Without Repeating Characters', 'Valid Anagram', 'Group Anagrams']
+            },
+            {
+                topic: 'Hashing (HashMaps & HashSets)',
+                concept: 'Access and insertion in expected O(1) time. Key collision handling strategies.',
+                playlist: 'https://youtube.com/playlist?list=PLgUwDviBHe0rPG3Ictpu74YWBQ1CaBkg2',
+                practice: ['Intersection of Two Arrays', 'Top K Frequent Elements', 'Subarray Sum Equals K']
+            },
+            {
+                topic: 'Recursion & Backtracking',
+                concept: 'Call stacks, leaf node base validations, state backtracking loops.',
+                playlist: 'https://youtube.com/playlist?list=PLgUwDviBHe0rPG3Ictpu74YWBQ1CaBkg2',
+                practice: ['N-Queens', 'Generate Parentheses', 'Word Search']
+            }
+        ];
+
+        const aiToolsData = [
+            {
+                name: 'Google Antigravity',
+                category: 'agents',
+                desc: 'Google\'s revolutionary agentic development system. Coordinates networks of autonomous agents that read, write, build, test, and deploy entire workspaces concurrently.',
+                pricing: 'Public Beta (Free)',
+                website: 'https://labs.google',
+                alternatives: 'Devin, Cursor, Windsurf',
+                useCase: 'Autonomous codebase refactoring, parallel testing, and end-to-end task execution in local/remote folders.'
+            },
+            {
+                name: 'Google AI Studio',
+                category: 'coding',
+                desc: 'A robust prototyping environment designed to test Google Gemini frontier models with custom system instructions, fine-tuned configurations, structured JSON pipelines, and rapid multi-language SDK integrations.',
+                pricing: 'Generous Free Tier',
+                website: 'https://aistudio.google.com',
+                alternatives: 'Anthropic Console, OpenAI Platform',
+                useCase: 'Rapid testing of complex prompts, agent system messages, and multi-file code review logic.'
+            },
+            {
+                name: 'Google Labs',
+                category: 'coding',
+                desc: 'Google\'s experimental sandbox hosting early previews of their frontier generative models, experimental multi-modal capabilities, and upcoming developer integrations.',
+                pricing: 'Free Sandbox Access',
+                website: 'https://labs.google',
+                alternatives: 'Hugging Face Spaces, OpenAI Beta',
+                useCase: 'Testing pre-release multi-modal model capabilities and agent features.'
+            },
+            {
+                name: 'Wispr Flow',
+                category: 'research',
+                desc: 'Zero-latency neural dictation system. Converts natural conversational speech directly into professional, perfectly formatted technical markdown or prose.',
+                pricing: 'Free Basic Tier / Premium Option',
+                website: 'https://wisprflow.ai',
+                alternatives: 'Whisper API, Otter.ai, Apple Dictation',
+                useCase: 'Rapidly dictating complex documentation files, email templates, and high-conversion recruiter scripts.'
+            },
+            {
+                name: 'Notion AI',
+                category: 'research',
+                desc: 'Fully integrated workspace intelligence suite. Automatically translates, builds summaries, updates tabular databases, and structures custom roadmaps directly inside your workspaces.',
+                pricing: 'Subscription Add-on',
+                website: 'https://notion.so/product/ai',
+                alternatives: 'ChatGPT Plus, Claude Projects',
+                useCase: 'Organizing daily database templates, summarizing core systems notes, and drafting project scripts.'
+            },
+            {
+                name: 'Excalidraw AI',
+                category: 'design',
+                desc: 'The industry-standard collaborative sketching whiteboard upgraded with AI. Generates clean UI wireframes, flowcharts, and system design diagrams directly from simple natural language descriptions.',
+                pricing: 'Free Web Whiteboard',
+                website: 'https://excalidraw.com',
+                alternatives: 'tldraw, Figma Jam, Miro',
+                useCase: 'Quickly drafting complex distributed backend system layouts or frontend design frames for placement projects.'
+            },
+            {
+                name: 'NotebookLM',
+                category: 'research',
+                desc: 'Google\'s personalized research companion. Upload textbooks, URLs, notes, or research papers to instantly generate structured syntheses, deep citation answers, and studio-grade audio discussions.',
+                pricing: '100% Free on Web',
+                website: 'https://notebooklm.google',
+                alternatives: 'PDFgeeks, Humata AI',
+                useCase: 'Synthesizing complex textbook content on Operating Systems, Core Networks, or Database Systems.'
+            },
+            {
+                name: 'Cursor',
+                category: 'coding',
+                desc: 'An AI-first visual code editor built as a fork of VS Code. Seamlessly executes codebase-wide context lookups, multi-file edits, and inline code generations.',
+                pricing: 'Free Basic Limits / Paid Tier',
+                website: 'https://cursor.com',
+                alternatives: 'Windsurf, VS Code + Copilot',
+                useCase: 'Building complex system architectures with multi-file code dependencies.'
+            },
+            {
+                name: 'Windsurf',
+                category: 'coding',
+                desc: 'Codeium\'s agentic IDE that uses full context synchronization to alternate seamlessly between high-speed copilot autocompletion and autonomous, multi-file coding agents.',
+                pricing: 'Free Trial / Paid Subscription',
+                website: 'https://codeium.com/windsurf',
+                alternatives: 'Cursor, Cursor AI',
+                useCase: 'Rapidly iterating on codebase modifications using synchronized agentic pipelines.'
+            },
+            {
+                name: 'ChatGPT',
+                category: 'coding',
+                desc: 'Pioneering conversational AI foundation model. Highly versatile for writing quick logic utilities, explanations, and boilerplate structures.',
+                pricing: 'Free / Paid Plus Tier',
+                website: 'https://chatgpt.com',
+                alternatives: 'Claude, Gemini',
+                useCase: 'Quick syntax queries, dry-running algorithms, and writing basic API routes.'
+            },
+            {
+                name: 'Claude',
+                category: 'coding',
+                desc: 'Anthropic\'s flagship model family, highly optimized for complex code comprehension, logic validation, and multi-file debugging cycles.',
+                pricing: 'Free Daily limits / Pro Upgrade',
+                website: 'https://claude.ai',
+                alternatives: 'ChatGPT, Gemini',
+                useCase: 'Refactoring complicated database interactions, auditing code, and generating clean documentation.'
+            },
+            {
+                name: 'Gemini',
+                category: 'coding',
+                desc: 'Google\'s foundational model boasting a massive token context window. Excellent for understanding entire libraries and complex system specifications at once.',
+                pricing: 'Free / Advanced Plan',
+                website: 'https://gemini.google.com',
+                alternatives: 'Claude, GPT-4o',
+                useCase: 'Uploading entire directory specifications and running long-form security audits.'
+            },
+            {
+                name: 'GitHub Copilot',
+                category: 'coding',
+                desc: 'The original, highly optimized inline AI pair programmer. Provides instant contextual suggestions directly in VS Code, JetBrains, and other IDEs.',
+                pricing: 'Subscription based (Free for Students)',
+                website: 'https://github.com/features/copilot',
+                alternatives: 'Codeium, Tabnine',
+                useCase: 'Accelerating routine coding tasks, autocompleting structures, and scaffolding functions.'
+            },
+            {
+                name: 'DeepSeek-R1',
+                category: 'coding',
+                desc: 'Open-source reasoning model using advanced reinforcement learning to perform systematic, self-correcting mathematical and logical proofing.',
+                pricing: 'Open-source / API Access',
+                website: 'https://deepseek.com',
+                alternatives: 'o1-pro, Claude reasoning',
+                useCase: 'Deep-dive planning for complex dynamic programming problems and high-tier DSA algorithms.'
+            },
+            {
+                name: 'Claude 3.7 Sonnet',
+                category: 'coding',
+                desc: 'Frontier AI model featuring hybrid reasoning. Allows developers to toggle between high-speed autocomplete generation and thorough deep-thinking coding steps.',
+                pricing: 'Paid / Pro Limit API',
+                website: 'https://claude.ai',
+                alternatives: 'o1, Gemini 1.5 Pro',
+                useCase: 'Resolving nested async operations and testing complex concurrent system parameters.'
+            },
+            {
+                name: 'Aider',
+                category: 'agents',
+                desc: 'Command-line interface coding agent. Couples directly with your git workspace to generate clean commits, resolve merges, and implement multi-file requirements.',
+                pricing: 'Free & Open Source',
+                website: 'https://aider.chat',
+                alternatives: 'Cline, Devin',
+                useCase: 'Applying precise multi-file git updates directly from prompt command lines.'
+            },
+            {
+                name: 'Cline',
+                category: 'agents',
+                desc: 'An open-source agentic VS Code extension. Reads file structures, executes system terminal commands, runs tests, and applies incremental edits autonomously.',
+                pricing: 'Free Open Source (Uses API key)',
+                website: 'https://github.com/cline/cline',
+                alternatives: 'Aider, Devin',
+                useCase: 'Building and running React or Node.js web applications directly from inside the IDE.'
+            },
+            {
+                name: 'Continue',
+                category: 'coding',
+                desc: 'Open-source, highly customizable copilot platform. Connects any commercial LLM or local model (Ollama) directly into your editor context panel.',
+                pricing: 'Free & Open Source',
+                website: 'https://continue.dev',
+                alternatives: 'GitHub Copilot, Tabnine',
+                useCase: 'Running secure, local offline coding helpers inside proprietary projects.'
+            },
+            {
+                name: 'Bolt',
+                category: 'coding',
+                desc: 'StackBlitz\'s generative full-stack browser development workspace. Generates, compiles, runs, and deploys multi-file web applications entirely in-browser.',
+                pricing: 'Free Limits / Paid subscription',
+                website: 'https://bolt.new',
+                alternatives: 'Lovable, v0, Replit Agent',
+                useCase: 'Rapidly scaffolding, testing, and sharing live fullstack web applications.'
+            },
+            {
+                name: 'Lovable',
+                category: 'coding',
+                desc: 'High-performance visual software generator. Reads natural design scripts and translates them into production-ready, clean, responsive frontend applications.',
+                pricing: 'Free tier / Paid Subscription',
+                website: 'https://lovable.dev',
+                alternatives: 'Bolt.new, v0, Replit AI',
+                useCase: 'Iteratively designing beautiful corporate product landing pages and modern SaaS client platforms.'
+            },
+            {
+                name: 'v0',
+                category: 'coding',
+                desc: 'Vercel\'s generative UI system. Builds production-grade, highly responsive web interfaces using custom Tailwind and React code from prompt instructions.',
+                pricing: 'Generous Free Limits',
+                website: 'https://v0.dev',
+                alternatives: 'Lovable, Bolt.new',
+                useCase: 'Instantly styling component dashboards and complex interactive layouts.'
+            },
+            {
+                name: 'Replit AI',
+                category: 'coding',
+                desc: 'Cloud-based development platform equipped with an autonomous agent. Configures servers, installs dependencies, writes backend APIs, and deploys applications instantly.',
+                pricing: 'Free Basic Tier / Paid Pro',
+                website: 'https://replit.com',
+                alternatives: 'Bolt.new, IDX',
+                useCase: 'Collaborating on cloud-hosted database systems and real-time multiplayer engines.'
+            },
+            {
+                name: 'Codeium',
+                category: 'coding',
+                desc: 'Generous, completely free individual copilot system offering high-speed inline coding completions, contextual chat, and direct search index integration.',
+                pricing: '100% Free for Individuals',
+                website: 'https://codeium.com',
+                alternatives: 'GitHub Copilot, Tabnine',
+                useCase: 'Replacing paid autocomplete plugins with a powerful, zero-cost developer companion.'
+            },
+            {
+                name: 'Tabnine',
+                category: 'coding',
+                desc: 'Context-aware AI coding assistant specializing in highly secure, fully isolated local code autocompletion and team workspace modeling.',
+                pricing: 'Free basic trials / Paid team tiers',
+                website: 'https://tabnine.com',
+                alternatives: 'GitHub Copilot, Codeium',
+                useCase: 'Ensuring absolute enterprise security by training completions locally on custom structures.'
+            },
+            {
+                name: 'Devin',
+                category: 'agents',
+                desc: 'The world\'s first fully autonomous AI software engineering agent. Capable of learning new libraries, constructing websites, and debugging pipelines autonomously.',
+                pricing: 'Enterprise Waitlist / Sandbox licensing',
+                website: 'https://cognition.ai',
+                alternatives: 'Cline, Google Antigravity',
+                useCase: 'Outsourcing routine bug fixing loops and automated security tests.'
+            },
+            {
+                name: 'Microsoft AutoGen',
+                category: 'agents',
+                desc: 'Advanced multi-agent framework designed to construct networks of conversational LLM nodes that work together to solve complex planning tasks.',
+                pricing: 'Free Open Source SDK',
+                website: 'https://microsoft.github.io/autogen/',
+                alternatives: 'CrewAI, LangGraph',
+                useCase: 'Orchestrating complex software architecture planning and automatic QA chains.'
+            },
+            {
+                name: 'CrewAI',
+                category: 'agents',
+                desc: 'Structured multi-agent development library. Easily configures distinct agent personas with unique tools, objectives, and collaborative handoff structures.',
+                pricing: 'Free Open Source SDK',
+                website: 'https://crewai.com',
+                alternatives: 'AutoGen, LangGraph',
+                useCase: 'Automating cold recruitment outreaches, content schedules, and multi-layered web audits.'
+            },
+            {
+                name: 'Elicit',
+                category: 'research',
+                desc: 'Advanced academic search engine that extracts insights, dataset scopes, and methodologies from a database of over 200 million research papers.',
+                pricing: 'Free credits / Pro Sub',
+                website: 'https://elicit.org',
+                alternatives: 'Consensus, Scite.ai',
+                useCase: 'Sourcing data for final-year engineering research papers and projects.'
+            },
+            {
+                name: 'Consensus',
+                category: 'research',
+                desc: 'AI-powered scientific search tool that extracts consensus conclusions directly from peer-reviewed literature to answer natural query questions.',
+                pricing: 'Free Search Queries / Paid Extra features',
+                website: 'https://consensus.app',
+                alternatives: 'Elicit, Perplexity',
+                useCase: 'Verifying scientific claims and finding peer-reviewed backup data for final defense presentations.'
+            },
+            {
+                name: 'ResearchRabbit',
+                category: 'research',
+                desc: 'Highly visual literature mapping tool. Enter key research papers to discover linked authors, citations, references, and related research tracks.',
+                pricing: '100% Free on Web',
+                website: 'https://researchrabbit.ai',
+                alternatives: 'Connected Papers',
+                useCase: 'Mapping out relevant publications for deep domain analysis.'
+            },
+            {
+                name: 'Resume Worded',
+                category: 'career',
+                desc: 'AI feedback engine that checks your CV for ATS parsing compatibility, impact metrics, action verb usage, and section formatting errors.',
+                pricing: 'Free basic audit / Paid full report',
+                website: 'https://resumeworded.com',
+                alternatives: 'Teal, Kickresume',
+                useCase: 'Optimizing resumes for target software roles before hitting submit button.'
+            },
+            {
+                name: 'Teal',
+                category: 'career',
+                desc: 'Comprehensive application manager. Helps track job pipelines, customize resumes for specific bullet descriptions, and monitor response metrics.',
+                pricing: 'Free Basic Tracker / Premium Pro',
+                website: 'https://tealhq.com',
+                alternatives: 'Huntr, Notion boards',
+                useCase: 'Structuring placement efforts systematically across 50+ companies.'
+            },
+            {
+                name: 'Kickresume',
+                category: 'career',
+                desc: 'AI-assisted resume and cover letter builder loaded with industry-vetted ATS templates and automatic AI bullet writing aids.',
+                pricing: 'Free Basic Templates / Paid options',
+                website: 'https://kickresume.com',
+                alternatives: 'Enhancv, Resume Worded',
+                useCase: 'Generating polished initial CV structures in seconds.'
+            },
+            {
+                name: 'Enhancv',
+                category: 'career',
+                desc: 'Interactive resume designer utilizing AI writing helpers to construct beautifully balanced, clean resume files optimized for review boards.',
+                pricing: 'Free Trials / Paid layouts',
+                website: 'https://enhancv.com',
+                alternatives: 'Kickresume, Teal',
+                useCase: 'Creating clean modern resumes with structural styling indicators.'
+            },
+            {
+                name: 'Canva AI',
+                category: 'design',
+                desc: 'Popular visual editing program integrated with Magic Design AI tools. Generates stunning slides, templates, banners, and vector assets instantly.',
+                pricing: 'Free Tier / Paid Pro subscription',
+                website: 'https://canva.com',
+                alternatives: 'Gamma, Figma',
+                useCase: 'Creating beautiful custom banners for LinkedIn profiles and project presentations.'
+            },
+            {
+                name: 'Galileo AI',
+                category: 'design',
+                desc: 'Generative interface designer. Instantly outputs editable Figma vector wireframes and premium UI components from natural text descriptions.',
+                pricing: 'Free Credits / Paid subscription',
+                website: 'https://usegalileo.ai',
+                alternatives: 'Uizard, Figma AI',
+                useCase: 'Rapidly modeling polished mobile or web dashboard interfaces for project portfolios.'
+            },
+            {
+                name: 'Uizard',
+                category: 'design',
+                desc: 'AI-powered prototyping software. Instantly transforms hand-drawn whiteboard wireframe sketches into high-fidelity editable web/app layouts.',
+                pricing: 'Free Basic Projects / Paid upgrades',
+                website: 'https://uizard.io',
+                alternatives: 'Galileo AI, Figma AI',
+                useCase: 'Converting paper layouts into polished prototype links for final projects.'
+            },
+            {
+                name: 'Midjourney',
+                category: 'design',
+                desc: 'High-fidelity text-to-image generator. Builds cinematic visuals, abstract art, vector designs, and customized mockup branding elements.',
+                pricing: 'Subscription based',
+                website: 'https://midjourney.com',
+                alternatives: 'Adobe Firefly, DALL-E 3',
+                useCase: 'Rendering bespoke abstract backgrounds, graphics, and icon art for web platforms.'
+            },
+            {
+                name: 'Runway',
+                category: 'design',
+                desc: 'Video generation system designed to convert textual descriptions or source images into highly cinematic, custom video sequences.',
+                pricing: 'Free basic credits / Paid plans',
+                website: 'https://runwayml.com',
+                alternatives: 'Pika, Sora',
+                useCase: 'Rendering high-concept animation loops for interactive web elements.'
+            },
+            {
+                name: 'HeyGen',
+                category: 'design',
+                desc: 'Generative video avatar system. Synthesizes photorealistic spokesperson videos with customized vocal configurations from simple script inputs.',
+                pricing: 'Free Trials / Paid creation hours',
+                website: 'https://heygen.com',
+                alternatives: 'Synthesia, CapCut AI',
+                useCase: 'Producing automated showcase demos and presentations for project portfolios.'
+            },
+            {
+                name: 'Gamma App',
+                category: 'design',
+                desc: 'Generative presentation framework. Enter a basic technical outline to instantly construct gorgeous slides, document files, or simple webpages.',
+                pricing: 'Free Starter Credits / Paid tiers',
+                website: 'https://gamma.app',
+                alternatives: 'Tome AI, Beautiful.ai',
+                useCase: 'Generating clean system design pitch decks and seminar presentations in seconds.'
+            },
+            {
+                name: 'Tome AI',
+                category: 'design',
+                desc: 'AI-first narrative workspace designed to create visual pitch structures, product summaries, and interactive business presentations.',
+                pricing: 'Free Starter Credits',
+                website: 'https://tome.app',
+                alternatives: 'Gamma App, Beautiful.ai',
+                useCase: 'Formulating structured analytical cases and pitch presentations.'
+            },
+            {
+                name: 'Copy.ai',
+                category: 'design',
+                desc: 'SaaS automation platform optimized for formulating automated outreach sequences, email copy, and content schedules.',
+                pricing: 'Free Tier / Paid Pro subscription',
+                website: 'https://copy.ai',
+                alternatives: 'Jasper, ChatGPT',
+                useCase: 'Generating structured technical blog articles and personalized cold connection templates.'
+            }
+        ];
+
+        // Core App Routing State Management
+        function enterDashboard() {
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('dashboard-page').classList.remove('hidden');
+            // Render initial contents
+            renderRoadmaps('all');
+            selectDSALang('cpp');
+            renderDSATopics();
+            renderAITools('all');
+            initTrackerProgress();
+        }
+
+        function exitDashboard() {
+            document.getElementById('dashboard-page').classList.add('hidden');
+            document.getElementById('landing-page').classList.remove('hidden');
+        }
+
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Show active tab
+            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+
+            // Update sidebar buttons styling
+            const buttons = document.querySelectorAll('.sidebar-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('sidebar-active');
+                if (btn.getAttribute('data-tab') === tabName) {
+                    btn.classList.add('sidebar-active');
+                }
+            });
+
+            // Auto close mobile sidebar on navigation tap
+            if (window.innerWidth < 768) {
+                document.getElementById('sidebar').classList.add('hidden');
+            }
+        }
+
+        // Mobile Sidebar Drawer Control
+        function toggleMobileSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+            sidebar.classList.toggle('fixed');
+            sidebar.classList.toggle('inset-0');
+            sidebar.classList.toggle('w-full');
+            sidebar.classList.toggle('bg-zinc-950');
+        }
+
+        // Rendering logic for Learning Roadmaps
+        function renderRoadmaps(filterCategory = 'all') {
+            const grid = document.getElementById('roadmap-cards-grid');
+            grid.innerHTML = '';
+
+            const filtered = filterCategory === 'all' 
+                ? roadmapData 
+                : roadmapData.filter(r => r.category === filterCategory);
+
+            filtered.forEach(r => {
+                const card = document.createElement('div');
+                card.className = "p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 glass-hover space-y-4";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider text-brand-400 font-mono">${r.category} Track</span>
+                            <h3 class="text-lg font-bold font-display mt-1 text-zinc-100">${r.title}</h3>
+                        </div>
+                        <span class="px-2 py-0.5 bg-zinc-800 text-zinc-400 text-[10px] rounded font-semibold font-mono">${r.timeline}</span>
+                    </div>
+                    <p class="text-xs text-zinc-400 leading-relaxed">${r.overview}</p>
+                    <div class="space-y-1.5">
+                        <span class="text-[10px] font-bold text-zinc-500 uppercase block tracking-wider">Required Skills:</span>
+                        <div class="flex flex-wrap gap-1">
+                            ${r.skills.map(s => `<span class="bg-zinc-950 border border-zinc-800 text-zinc-300 px-2 py-0.5 rounded text-[10px]">${s}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-zinc-800 space-y-1">
+                        <span class="text-[10px] font-bold text-zinc-500 uppercase block tracking-wider">Recommended Project:</span>
+                        <p class="text-xs text-zinc-300 font-semibold">${r.projects[0]}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterRoadmaps(category) {
+            const buttons = document.querySelectorAll('.roadmap-filter-btn');
+            buttons.forEach(btn => {
+                btn.className = "roadmap-filter-btn px-4 py-2 rounded-lg text-xs font-semibold border border-zinc-800 bg-zinc-900/50 text-zinc-400 hover:bg-zinc-900 transition-colors";
+            });
+            event.currentTarget.className = "roadmap-filter-btn px-4 py-2 rounded-lg text-xs font-semibold border border-brand-500/20 bg-brand-500/10 text-brand-300";
+
+            renderRoadmaps(category);
+        }
+
+        // DSA Language Selection Logic
+        function selectDSALang(lang) {
+            const buttons = document.querySelectorAll('.dsa-lang-btn');
+            buttons.forEach(btn => {
+                btn.className = "dsa-lang-btn border border-zinc-800 hover:border-zinc-700 bg-zinc-900/20 p-4 rounded-xl text-left transition-all relative";
+                
+                // Set active class if this button matches the selected language
+                if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(`'${lang}'`)) {
+                    btn.className = "dsa-lang-btn border-2 border-brand-500 bg-brand-500/10 p-4 rounded-xl text-left transition-all relative";
+                }
+            });
+
+            const data = dsaLangData[lang];
+            const box = document.getElementById('dsa-lang-resources-box');
+            box.innerHTML = `
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <h4 class="text-sm font-bold text-zinc-200">Pre-Configured ${lang.toUpperCase()} Preparation Resources</h4>
+                        <p class="text-xs text-zinc-400">Excellent free playlists, guides, and practice pathways.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="${data.playlist}" target="_blank" class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-xs text-zinc-300 font-semibold rounded-lg transition-colors">Free Video Course</a>
+                        <a href="${data.notes}" target="_blank" class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-xs text-zinc-300 font-semibold rounded-lg transition-colors">Revision Notes</a>
+                        <a href="${data.cheatSheet}" target="_blank" class="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-xs text-zinc-300 font-semibold rounded-lg transition-colors">Syntax Cheat Sheet</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render Accordions for DSA Topics
+        function renderDSATopics() {
+            const accordionBox = document.getElementById('dsa-topics-accordions');
+            accordionBox.innerHTML = '';
+
+            dsaTopicData.forEach((t, index) => {
+                const item = document.createElement('div');
+                item.className = "border border-zinc-800 rounded-xl bg-zinc-900/20 overflow-hidden";
+                item.innerHTML = `
+                    <button onclick="toggleAccordion(${index})" class="w-full text-left p-4 flex justify-between items-center hover:bg-zinc-900/40 transition">
+                        <span class="text-sm font-bold text-zinc-200">${t.topic}</span>
+                        <svg id="arrow-${index}" class="w-4 h-4 text-zinc-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="content-${index}" class="hidden p-4 border-t border-zinc-800/60 bg-zinc-950/40 space-y-4">
+                        <p class="text-xs text-zinc-400 leading-relaxed"><strong class="text-zinc-200">Core Concept:</strong> ${t.concept}</p>
+                        <div class="space-y-2">
+                            <span class="text-[10px] font-bold text-zinc-500 uppercase tracking-wider block">Target Practice Exercises:</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                ${t.practice.map(p => `
+                                    <div class="p-2 bg-zinc-950 border border-zinc-800 rounded flex justify-between items-center">
+                                        <span class="text-xs text-zinc-300">${p}</span>
+                                        <a href="https://leetcode.com/problemset/all/?search=${encodeURIComponent(p)}" target="_blank" class="text-[10px] text-brand-400 hover:underline">Solve ↗</a>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                accordionBox.appendChild(item);
+            });
+        }
+
+        function toggleAccordion(index) {
+            const content = document.getElementById(`content-${index}`);
+            const arrow = document.getElementById(`arrow-${index}`);
+            
+            content.classList.toggle('hidden');
+            arrow.classList.toggle('rotate-180');
+        }
+
+        // Render AI Tools
+        function renderAITools(filterCategory = 'all') {
+            const grid = document.getElementById('ai-tools-grid');
+            grid.innerHTML = '';
+
+            const filtered = filterCategory === 'all' 
+                ? aiToolsData 
+                : aiToolsData.filter(t => t.category === filterCategory);
+
+            filtered.forEach(t => {
+                const card = document.createElement('div');
+                card.className = "p-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 glass-hover space-y-4 flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-indigo-400 font-mono">${t.category}</span>
+                                <h3 class="text-lg font-bold font-display mt-1 text-zinc-100">${t.name}</h3>
+                            </div>
+                            <span class="px-2 py-0.5 bg-zinc-800 text-zinc-400 text-[9px] rounded font-semibold font-mono">${t.pricing}</span>
+                        </div>
+                        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">${t.desc}</p>
+                        <div class="mt-4 space-y-1 text-[11px] text-zinc-400">
+                            <p><strong class="text-zinc-300">Best Use Case:</strong> ${t.useCase}</p>
+                            <p><strong class="text-zinc-300">Alternatives:</strong> ${t.alternatives}</p>
+                        </div>
+                    </div>
+                    <div class="pt-4 border-t border-zinc-800/80 mt-4">
+                        <a href="${t.website}" target="_blank" class="block w-full text-center bg-zinc-800 hover:bg-indigo-600 text-white font-semibold text-xs py-2.5 rounded-lg transition-colors">
+                            Launch Official Site
+                        </a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterAITools(category) {
+            const buttons = document.querySelectorAll('.ai-filter-btn');
+            buttons.forEach(btn => {
+                btn.className = "ai-filter-btn px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 rounded-lg text-xs font-semibold whitespace-nowrap";
+            });
+            event.currentTarget.className = "ai-filter-btn px-4 py-2 bg-indigo-500 text-white rounded-lg text-xs font-semibold whitespace-nowrap";
+
+            renderAITools(category);
+        }
+
+        // Global Search Mechanism
+        function runSearch() {
+            const query = document.getElementById('global-search').value.toLowerCase();
+            
+            // Auto route to tabs or dynamically show matches
+            if (query.length > 1) {
+                showToast(`Searching directory for "${query}"...`);
+            }
+        }
+
+        // Custom Prompt Copy Mechanics
+        function copyPromptText(type) {
+            let prompt = "";
+            if (type === 'dsa') {
+                prompt = "Provide the time complexity of the following code and suggest a highly optimized approach using efficient data structures.";
+            } else if (type === 'resume') {
+                prompt = "Rewrite the following software engineering achievements using action verbs and quantified impact metrics.";
+            }
+            
+            // Use fallback clipboard implementation for local environments
+            const tempInput = document.createElement("input");
+            tempInput.value = prompt;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showToast("Prompt copied directly to clipboard!");
+        }
+
+        function copyOutreachScript() {
+            const text = document.getElementById('outreach-script').innerText;
+            const tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showToast("Outreach template copied!");
+        }
+
+        // Formats and populates user project in mock STAR formula format
+        function compileSTAR() {
+            const s = document.getElementById('star-s').value || "No situation set.";
+            const t = document.getElementById('star-t').value || "No task set.";
+            const a = document.getElementById('star-a').value || "No action set.";
+            const r = document.getElementById('star-r').value || "No result set.";
+
+            const output = `STAR PROJECT PREP SUMMATION:\n\n[SITUATION]\n${s}\n\n[TASK]\n${t}\n\n[ACTION]\n${a}\n\n[RESULT]\n${r}`;
+            
+            const box = document.getElementById('star-output-box');
+            box.innerText = output;
+            box.classList.remove('hidden');
+
+            const tempInput = document.createElement("textarea");
+            tempInput.value = output;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            const status = document.getElementById('star-copied');
+            status.classList.remove('hidden');
+            setTimeout(() => status.classList.add('hidden'), 3000);
+            
+            showToast("STAR Pitch formatted and copied to clipboard!");
+        }
+
+        // Custom interactive checklist tracker saving status to LocalStorage
+        function initTrackerProgress() {
+            const totalItems = document.querySelectorAll('.checkbox-item').length;
+            const savedSelected = parseInt(localStorage.getItem('checkbox_progress') || "1");
+            
+            // Render mock initial state
+            updateTracker();
+        }
+
+        function updateTracker() {
+            const checkboxes = document.querySelectorAll('.checkbox-item');
+            const total = checkboxes.length;
+            let checked = 0;
+            checkboxes.forEach(c => {
+                if (c.checked) checked++;
+            });
+
+            const percent = total > 0 ? Math.round((checked / total) * 100) : 35;
+            document.getElementById('progress-bar-fill').style.width = `${percent}%`;
+            document.getElementById('progress-percentage').innerText = `${percent}%`;
+
+            localStorage.setItem('checkbox_progress', checked);
+        }
+
+        // Toast Notification System
+        function showToast(message) {
+            const wrapper = document.getElementById('toast-wrapper');
+            const toast = document.createElement('div');
+            toast.className = "px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-zinc-300 flex items-center gap-2 pointer-events-auto shadow-xl transition-all duration-300 transform translate-y-2 opacity-0";
+            toast.innerHTML = `
+                <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span>${message}</span>
+            `;
+            wrapper.appendChild(toast);
+
+            // Animate transition on mount
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            // Auto dismiss toast with ease out
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-[-10px]');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
